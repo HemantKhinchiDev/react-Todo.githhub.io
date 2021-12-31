@@ -7,15 +7,10 @@ const HeaderForm = (props) => {
   };
   const submitHandler = (event) => {
     event.preventDefault();
-    const todoData = {
-      title: enteredTitle,
-    };
-    console.log(title);
-    props.onSaveTodoData(todoData);
-    setEnteredTitle('');
+    props.onAddGoal(enteredTitle);
   };
   return (
-    <form id="myDIV" onSubmit={submitHandler}>
+    <form onSubmit={submitHandler}>
       <input
         type="text"
         id="myInput"
