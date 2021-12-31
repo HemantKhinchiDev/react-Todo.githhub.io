@@ -3,12 +3,12 @@ import TodoItem from './todo-items';
 import './todo-list.css';
 const TodoList = (props) => {
   return (
-    <ul id="myUL" className="list">
-      {props.items.map((expense) => {
+    <ul className="list">
+      {props.items.map((goal) => (
         <TodoItem key={goal.id} id={goal.id} onDelete={props.onDeleteItem}>
-          {goal.title}
-        </TodoItem>;
-      })}
+          {goal.text}
+        </TodoItem>
+      ))}
     </ul>
   );
 };

@@ -1,30 +1,24 @@
 import React, { useState } from 'react';
 import './headerform.css';
+import Button from '../UI/Button/Button';
 const HeaderForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState('');
-  const todoChangeHandler = (element) => {
-    setEnteredTitle(element.target.value);
+  const goalInputChangeHandler = (event) => {
+    setEnteredValue(event.target.value);
   };
-  const submitHandler = (event) => {
+  const formSubmitHandler = (event) => {
     event.preventDefault();
-    props.onAddGoal(enteredTitle);
+    props.onAddGoal(enteredValue);
   };
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={formSubmitHandler}>
       <input
         type="text"
-        id="myInput"
         placeholder="Title..."
         className="addTodo"
-        value={enteredTitle}
-        onChange={todoChangeHandler}
+        onChange={goalInputChangeHandler}
       />
-      <button type="submit" className="addBtn">
-        Add
-      </button>
-      {/* <span onclick="newElement()" >
-    Add
-  </span> */}
+      <Button type="submit">Add</Button>
     </form>
   );
 };

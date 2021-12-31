@@ -2,41 +2,39 @@ import React, { useState } from 'react';
 import Header from './components/list-header/header';
 import TodoList from './components/todo-list/todo-list';
 import './style.css';
-const DUMMY_list = [
-  {
-    id: 'e1',
-    title: 'Hit the gym',
-  },
-  { id: 'e2', title: 'Pay bills' },
-  {
-    id: 'e3',
-    title: 'Meet George',
-  },
-  {
-    id: 'e4',
-    title: 'Buy eggs',
-  },
-  {
-    id: 'e5',
-    title: 'Read a book',
-  },
-  {
-    id: 'e6',
-    title: 'Organize office',
-  },
-];
+
 export default function App() {
-  const [listItem, setListItems] = useState(DUMMY_list);
-  const addTodoHandler = (expen) => {
-    setListItems((PrevExpenses) => {
-      return [expen, ...PrevExpenses];
+  const [courseGoals, setCourseGoals] = useState([
+    { text: 'Do all exercises!', id: 'g1' },
+    { text: 'Finish the course!', id: 'g2' },
+  ]);
+  const addGoalHandler = (enteredText) => {
+    setCourseGoals((prevGoals) => {
+      const updatedGoals = [...prevGoals];
+      updatedGoals.unshift({ text: enteredText, id: Math.random().toString() });
+      return updatedGoals;
     });
   };
+  const deleteItemHandler = (goalId) => {
+    setCourseGoals((prevGoals) => {
+      const updatedGoals = prevGoals.filter((goal) => goal.id !== goalId);
+      return updatedGoals;
+    });
+  };
+  let content = (
+    <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
+  );
+  if (courseGoals.length > 0) {
+    content = (
+      <CourseGoalList items={courseGoals} onDeleteItem={deleteItemHandler} />
+    );
+  }
 
   return (
     <div>
-      <Header onAddTodo={addTodoHandler} />
-      <TodoList items={listItem} />
+      <Header onAddGoal={addGoalHandler} />
+      {content}
+      <TodoList id="goals" items={listItem} />
     </div>
   );
 }
