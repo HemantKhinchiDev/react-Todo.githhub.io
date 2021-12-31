@@ -15,7 +15,7 @@ const HeaderForm = (props) => {
     setEnteredTodo('');
   };
   return (
-    <form id="myDIV" onAdd={submitHandler}>
+    <form id="myDIV" onSubmit={submitHandler}>
       <input
         type="text"
         id="myInput"
