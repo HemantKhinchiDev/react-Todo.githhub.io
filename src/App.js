@@ -27,9 +27,9 @@ const DUMMY_list = [
 ];
 export default function App() {
   const [listItem, setListItems] = useState(DUMMY_list);
-  const addTodoHandler = (ex) => {
-    setListItems((PrevExp) => {
-      return [ex, ...PrevExp];
+  const addTodoHandler = (expen) => {
+    setListItems((PrevExpenses) => {
+      return [expen, ...PrevExpenses];
     });
   };
 

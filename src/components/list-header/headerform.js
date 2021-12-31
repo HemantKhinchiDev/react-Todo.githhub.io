@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import './headerform.css';
 const HeaderForm = (props) => {
-  const [enteredTodo, setEnteredTodo] = useState('');
+  const [enteredTitle, setEnteredTitle] = useState('');
   const todoChangeHandler = (element) => {
-    setEnteredTodo(element.target.value);
+    setEnteredTitle(element.target.value);
   };
   const submitHandler = (event) => {
     event.preventDefault();
     const todoData = {
-      title: enteredTodo,
+      title: enteredTitle,
     };
     console.log(title);
     props.onSaveTodoData(todoData);
-    setEnteredTodo('');
+    setEnteredTitle('');
   };
   return (
     <form id="myDIV" onSubmit={submitHandler}>
@@ -21,7 +21,7 @@ const HeaderForm = (props) => {
         id="myInput"
         placeholder="Title..."
         className="addTodo"
-        value={enteredTodo}
+        value={enteredTitle}
         onChange={todoChangeHandler}
       />
       <button type="submit" className="addBtn">
