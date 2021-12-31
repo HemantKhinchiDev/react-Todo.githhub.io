@@ -1,14 +1,17 @@
 import React from 'react';
+import TodoItem from './todo-items';
 import './todo-list.css';
-const TodoList = () => {
+const TodoList = (props) => {
+  if (props.items.length === 0) {
+    return (
+      <h2 className="expenses-list__fallback">Found no Todo in your List!</h2>
+    );
+  }
   return (
     <ul id="myUL" className="list">
-      <li>Hit the gym</li>
-      <li className="checked">Pay bills</li>
-      <li>Meet George</li>
-      <li>Buy eggs</li>
-      <li>Read a book</li>
-      <li>Organize office</li>
+      {props.items.map((expense) => {
+        <TodoItem title={expense.title} />;
+      })}
     </ul>
   );
 };
