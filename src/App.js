@@ -1,11 +1,13 @@
-import React from "react";
-import "./style.css";
+import React from 'react';
+import Header from './components/list-header/header';
+import TodoList from './components/todo-list/todo-list';
+import './style.css';
 
 export default function App() {
   return (
     <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
+      <Header />
+      <TodoList />
     </div>
   );
 }
