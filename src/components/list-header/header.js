@@ -1,38 +1,20 @@
 import React, { useState } from 'react';
+import HeaderForm from './headerform';
 import './header.css';
 const Header = (props) => {
-  const [enteredTodo, setEnteredTodo] = useState('');
-  const todoChangeHandler = (element) => {
-    setEnteredTodo(element.target.value);
-  };
-  const submitHandler = (event) => {
-    event.preventDefault();
-    const todoData = {
-      title: enteredTodo,
+  const SaveTodoDataHandler = (enteredExpenseData) => {
+    const todoDataList = {
+      ...enteredExpenseData,
+      id: Math.random().toString(),
     };
-    console.log(title);
-    props.onSaveExpenseData(todoData);
-    setEnteredTodo('');
-  };
 
+    props.onAddTodo(todoDataList);
+  };
   return (
-    <form id="myDIV" className="header" onAdd={submitHandler}>
+    <div className="header">
       {/* <h2>My To Do List</h2> */}
-      <input
-        type="text"
-        id="myInput"
-        placeholder="Title..."
-        className="addTodo"
-        value={enteredTodo}
-        onChange={todoChangeHandler}
-      />
-      <button type="submit" className="addBtn">
-        Add
-      </button>
-      {/* <span onclick="newElement()" >
-        Add
-      </span> */}
-    </form>
+      <HeaderForm onSaveTodoData={SaveTodoDataHandler} />
+    </div>
   );
 };
 export default Header;
