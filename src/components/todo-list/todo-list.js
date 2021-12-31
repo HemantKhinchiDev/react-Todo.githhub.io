@@ -4,7 +4,7 @@ const TodoList = () => {
   return (
     <ul id="myUL" className="list">
       <li>Hit the gym</li>
-      <li class="checked">Pay bills</li>
+      <li className="checked">Pay bills</li>
       <li>Meet George</li>
       <li>Buy eggs</li>
       <li>Read a book</li>
