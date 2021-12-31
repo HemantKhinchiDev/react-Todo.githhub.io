@@ -36,6 +36,7 @@ input.addTodo {
   cursor: pointer;
   transition: 0.3s;
   border-radius: 0;
+  border: 0;
 }
 
 .addBtn:hover {
