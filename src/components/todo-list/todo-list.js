@@ -1,12 +1,12 @@
 import React from 'react';
-import listItem from './todo-items';
+import itemList from '../list-items';
 import './todo-list.css';
-const TodoList = (props) => {
+const TodoListHolder = (props) => {
   return (
     <ul className="list">
-      <listItem />
-      <listItem />
+      <itemList />
+      <itemList />
     </ul>
   );
 };
-export default TodoList;
+export default TodoListHolder;

@@ -14,7 +14,6 @@ export default function App() {
     <div>
       <HeaderForm />
       <TodoList />
-      <TodoList />
     </div>
   );
 }

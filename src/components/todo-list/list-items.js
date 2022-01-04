@@ -1,7 +1,6 @@
 import React from 'react';
-import listItem from './listItems';
-import './todo-list.css';
-const TodoList = (props) => {
+import './listItems.css';
+const itemList = (props) => {
   return <li>list item</li>;
 };
-export default TodoList;
+export default itemList;
