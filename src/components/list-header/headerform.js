@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './headerform.css';
-import Button from '../UI/Button/Button';
 const HeaderForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState('');
   const goalInputChangeHandler = (event) => {
@@ -18,7 +17,6 @@ const HeaderForm = (props) => {
         className="addTodo"
         onChange={goalInputChangeHandler}
       />
-      <Button type="submit">Add</Button>
     </form>
   );
 };
